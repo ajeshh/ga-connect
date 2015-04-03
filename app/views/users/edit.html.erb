@@ -1,0 +1,16 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+<script>
+$(document).on("ready page:load", function(){
+		var geo = navigator.geolocation;
+		geo.getCurrentPosition(function(data) {
+			console.log(data);
+			lat = data.coords.latitude;
+			lon = data.coords.longitude;
+			$.get("/locations?latitude="+lat+"&longitude="+lon)
+			.done(function(res){
+				console.log(res);
+			})
+		});
+});
+</script>
